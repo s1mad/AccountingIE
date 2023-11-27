@@ -1,0 +1,25 @@
+<Page x:Class="AccountingIE.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AccountingIE"
+      mc:Ignorable="d"
+      Title="Registration">
+    <Grid>
+        <Grid>
+            <StackPanel Margin="15">
+                <Label>Email:</Label>
+                <TextBox x:Name="EmailTextBox" Text=""/>
+                <Label>Login:</Label>
+                <TextBox x:Name="UsernameTextBox" Text=""/>
+                <Label>Password:</Label>
+                <PasswordBox x:Name="PasswordBox" Password=""/>
+                <Label>Repeat password:</Label>
+                <PasswordBox x:Name="RepeatPasswordBox" Password=""/>
+                <Button Content="Sign up" Margin="0, 20, 0,0" Click="RegistrationButton_Click"/>
+                <Button Content="Have account" Margin="0, 20, 0,0" Click="HaveAccountButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

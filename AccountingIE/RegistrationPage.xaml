@@ -9,10 +9,8 @@
     <Grid>
         <Grid>
             <StackPanel Margin="15">
-                <Label>Email:</Label>
-                <TextBox x:Name="EmailTextBox" Text=""/>
                 <Label>Login:</Label>
-                <TextBox x:Name="UsernameTextBox" Text=""/>
+                <TextBox x:Name="LoginBox" Text=""/>
                 <Label>Password:</Label>
                 <PasswordBox x:Name="PasswordBox" Password=""/>
                 <Label>Repeat password:</Label>

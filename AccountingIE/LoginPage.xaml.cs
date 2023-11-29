@@ -12,20 +12,15 @@ public partial class LoginPage : Page
 
     private void LoginButton_Click(object sender, RoutedEventArgs e)
     {
-        if (IsValidUserData(UsernameTextBox.Text, PasswordBox.Password))
+        if (DataBase.IsLoginAndPasswordCorrect(LoginBox.Text, PasswordBox.Password))
         {
             NavigationService.Navigate(new AccountsPage());
         }
         else
         {
-            MessageBox.Show("Invalid username or password. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Invalid login or password. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-    }
-
-    private bool IsValidUserData(string username, string password)
-    {
-        return true;
-    }
+    } // Вход в аккаунт
 
     private void NoAccountButton_Click(object sender, RoutedEventArgs e)
     {

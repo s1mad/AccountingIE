@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="15">
             <Label>Login:</Label>
-            <TextBox x:Name="UsernameTextBox" Text=""/>
+            <TextBox x:Name="LoginBox" Text=""/>
             <Label>Password:</Label>
             <PasswordBox x:Name="PasswordBox" Password=""/>
             <Button Content="Sign in" Margin="0, 20, 0,0" Click="LoginButton_Click"/>

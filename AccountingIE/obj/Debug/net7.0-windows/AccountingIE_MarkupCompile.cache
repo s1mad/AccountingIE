@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\Files\Projects\AccountingIE\AccountingIE\App.xaml
-4-466213182
+6-744049876
 
-7481856126
+11-1115720983
 203-1581499147
-AccountsPage.xaml;LoginPage.xaml;MainWindow.xaml;RegistrationPage.xaml;
+AccountsFiles\AccountsPage.xaml;AccountsFiles\CreateAccountWindow.xaml;AccountsFiles\DeleteAccountWindow.xaml;AuthFiles\LoginPage.xaml;AuthFiles\RegistrationPage.xaml;MainWindow.xaml;
 
 False
 

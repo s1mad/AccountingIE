@@ -1,0 +1,26 @@
+<Window x:Class="AccountingIE.UpdateAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AccountingIE"
+        mc:Ignorable="d"
+        Title="EditAccountWindow" 
+        Icon="../Assets/ico.png"
+        Height="Auto" Width="Auto"
+        MinWidth="300" MinHeight="310"
+        MaxWidth="300" MaxHeight="310" >
+    <Grid>
+        <StackPanel Margin="15">
+            <TextBlock Text="Account Name:"/>
+            <TextBox x:Name="accountNameTextBox" Margin="0,0,0,10" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Initial Balance:"/>
+            <TextBox x:Name="initialBalanceTextBox" Margin="0,0,0,10" Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Content="Save" Click="Save_Click" />
+            
+            <Button Content="Cancel" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,15 +1,13 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace AccountingIE;
 
 public partial class AccountsPage : Page
 {
-    public List<Account> accounts;
+    private List<Account> accounts;
     
     private Account selectedAccount;
     
@@ -55,19 +53,16 @@ public partial class AccountsPage : Page
 
     private void EditMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        // Получите выбранный аккаунт
         selectedAccount = (Account)accountsListBox.SelectedItem;
-
-        // Проверка на null важна, так как контекстное меню может вызываться не только через клик мыши
+        
         if (selectedAccount != null)
         {
             UpdateAccountWindow editWindow = new UpdateAccountWindow(selectedAccount);
-            if (editWindow.ShowDialog() == true)
-            {
-                // Если пользователь подтвердил редактирование, обновите список и баланс
-                LoadAccounts();
-                UpdateTotalBalance();
-            }
+
+            editWindow.ShowDialog();
+            
+            LoadAccounts();
+            UpdateTotalBalance();
         }
     }
     

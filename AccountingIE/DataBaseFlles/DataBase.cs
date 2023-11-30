@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Globalization;
-using System.IO;
-using System.Windows.Xps;
 
 namespace AccountingIE;
 
@@ -31,7 +28,7 @@ public static class DataBase
                     return -1;
                 }
             }
-        } // Возвращает user_id
+        }
         public static bool IsLoginExists(string login)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -48,7 +45,7 @@ public static class DataBase
                     return count > 0;
                 }
             }
-        } // Возвращает true, если login существует
+        }
         public static bool IsLoginAndPasswordCorrect(string login, string password)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -67,7 +64,7 @@ public static class DataBase
                 }
             }
         
-        } // Возвращает true, если пара login, password существует
+        }
         public static void CreateUser(string login, string password)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -83,7 +80,7 @@ public static class DataBase
                     command.ExecuteNonQuery();
                 }
             }
-        } // Создаёт user в базе данных 
+        }
         public static void DeleteUser(string login)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -98,9 +95,9 @@ public static class DataBase
                     command.ExecuteNonQuery();
                 }
             }
-        } // Удаляет user из базы данных 
+        }
         
-    } // Класс для работы с таблицей users 
+    } // Класс дял работы с таблицей users
     
     public static class Accounts
     {
@@ -120,7 +117,7 @@ public static class DataBase
                     command.ExecuteNonQuery();
                 }
             }
-        } // Создание счёта
+        }
         
         public static List<Account> GetUserAccounts(int userId)
         {
@@ -158,6 +155,8 @@ public static class DataBase
         
         public static void DeleteAccount(int accountId)
         {
+            DataBase.Transactions.DeleteTransactionsByAccountId(accountId);
+            
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -194,11 +193,9 @@ public static class DataBase
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-
-                // Получаем изначальный баланс счета
+                
                 decimal initialBalance = GetBalance(accountId);
-
-                // Рассчитываем новый баланс
+                
                 decimal newBalance = initialBalance + amount;
 
                 using (SQLiteCommand command = new SQLiteCommand(connection))
@@ -234,6 +231,38 @@ public static class DataBase
                 }
             }
         }
+        public static Account GetAccount(int accountId)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT * FROM accounts WHERE account_id = @accountId";
+                    command.Parameters.AddWithValue("@accountId", accountId);
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Account account = new Account
+                            {
+                                AccountId = Convert.ToInt32(reader["account_id"]),
+                                UserId = Convert.ToInt32(reader["user_id"]),
+                                Name = reader["name"].ToString(),
+                                Balance = Convert.ToDecimal(reader["balance"])
+                            };
+
+                            return account;
+                        }
+                    }
+                }
+            }
+
+            return null;  
+        }
+        
     } // Класс дял работы с таблицей accounts
 
     public static class Transactions
@@ -318,8 +347,7 @@ public static class DataBase
                                 TransactionId = Convert.ToInt32(reader["transaction_id"]),
                                 AccountId = Convert.ToInt32(reader["account_id"]),
                                 Amount = Convert.ToDecimal(reader["amount"]),
-                                // Используйте правильный формат даты для парсинга
-                                Date = DateTime.Parse(reader["date"].ToString()), // Используем стандартный парсинг
+                                Date = DateTime.Parse(reader["date"].ToString()),
                                 Category = reader["category"].ToString()
                             };
 
@@ -345,6 +373,53 @@ public static class DataBase
 
             return allTransactions;
         }
-        
+        public static void DeleteTransactionsByAccountId(int accountId)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "DELETE FROM transactions WHERE account_id = @accountId";
+                    command.Parameters.AddWithValue("@accountId", accountId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public static Transaction GetTransaction(int transactionId)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT * FROM transactions WHERE transaction_id = @transactionId";
+                    command.Parameters.AddWithValue("@transactionId", transactionId);
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Transaction transaction = new Transaction
+                            {
+                                TransactionId = Convert.ToInt32(reader["transaction_id"]),
+                                AccountId = Convert.ToInt32(reader["account_id"]),
+                                Amount = Convert.ToDecimal(reader["amount"]),
+                                Date = DateTime.Parse(reader["date"].ToString()),
+                                Category = reader["category"].ToString()
+                            };
+
+                            return transaction;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
     } // Класс дял работы с таблицей transactions
 }

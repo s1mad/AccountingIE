@@ -16,7 +16,7 @@
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Balance, StringFormat='₽{0:N2}'}"/>
+                                <TextBlock Text="{Binding Balance, StringFormat='{}{0:N2} &#8381;'}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingIE"
         mc:Ignorable="d"
-        Title="AccounitngIE" Height="450" Width="600"
+        Title="AccounitngIE" Height="480" Width="600"
         Icon="Assets/ico.png"
-        MinHeight="430" MinWidth="330">
+        MinHeight="480" MinWidth="330">
     <Grid >
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

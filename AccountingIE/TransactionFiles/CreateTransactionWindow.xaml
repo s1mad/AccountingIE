@@ -5,25 +5,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AccountingIE"
         mc:Ignorable="d"
-        Title="CreateTransactionWindow" Height="300" Width="300">
+        Icon="../Assets/ico.png"
+        Title="Create Transaction" 
+        Height="410" Width="300"
+        MaxHeight="410" MaxWidth="300"
+        MinHeight="410" MinWidth="300">
     <Grid>
         <StackPanel Margin="10">
             <TextBlock Text="Amount:"/>
-            <TextBox x:Name="amountTextBox" Margin="0,0,0,10"/>
+            <TextBox x:Name="amountTextBox"/>
+            
+            <TextBlock Text="Category:"/>
+            <TextBox x:Name="categoryTextBox" />
             
             <TextBlock Text="Account:"/>
-            <ComboBox x:Name="accountComboBox" ItemsSource="{Binding AccountList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedAccount}" Margin="0,0,0,10"/>
+            <ComboBox x:Name="accountComboBox" 
+                      ItemsSource="{Binding AccountList}" 
+                      DisplayMemberPath="Name" SelectedItem="{Binding SelectedAccount}" 
+                      Height="35"
+                      Margin="0,0,0,10"/>
 
             <TextBlock Text="Date:"/>
             <DatePicker x:Name="datePicker" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Category:"/>
-            <TextBox x:Name="categoryTextBox" Margin="0,0,0,10"/>
-
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Create" Click="Create_Click" Margin="0,0,10,0"/>
-                <Button Content="Cancel" Click="Cancel_Click"/>
-            </StackPanel>
+            
+            <Button Content="Create" Click="Create_Click"/>
+            <Button Content="Cancel" Click="Cancel_Click"/>
         </StackPanel>
     </Grid>
 </Window>

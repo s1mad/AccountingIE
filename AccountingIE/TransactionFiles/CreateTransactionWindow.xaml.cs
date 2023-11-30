@@ -17,7 +17,6 @@ public partial class CreateTransactionWindow : Window
 
     private void Create_Click(object sender, RoutedEventArgs e)
     {
-        // Получение данных из WPF элементов
         string amountText = amountTextBox.Text;
         string category = categoryTextBox.Text;
 

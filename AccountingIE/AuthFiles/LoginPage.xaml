@@ -9,9 +9,9 @@
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="330">
         <StackPanel Margin="15">
             <Label>Login:</Label>
-            <TextBox x:Name="LoginBox" Text="admin"/>
+            <TextBox x:Name="LoginBox" Text=""/>
             <Label>Password:</Label>
-            <PasswordBox x:Name="PasswordBox" Password="admin"/>
+            <PasswordBox x:Name="PasswordBox" Password=""/>
             <Button Content="Sign in" Margin="0, 20, 0,0" Click="LoginButton_Click"/>
             <Button Content="I don't have an account yet" Margin="0, 20, 0,0" Click="NoAccountButton_Click"/>
         </StackPanel>

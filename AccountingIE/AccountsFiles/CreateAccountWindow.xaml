@@ -5,19 +5,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AccountingIE"
         mc:Ignorable="d"
-        Title="CreateAccountWindow" Height="300" Width="300">
+        Title="Create Account" 
+        Icon="../Assets/ico.png"
+        Height="Auto" Width="Auto"
+        MinWidth="300" MinHeight="310"
+        MaxWidth="300" MaxHeight="310" >
     <Grid>
-        <StackPanel Margin="10">
+        <StackPanel Margin="15">
             <TextBlock Text="Account Name:"/>
             <TextBox x:Name="accountNameTextBox" Margin="0,0,0,10"/>
 
             <TextBlock Text="Initial Balance:"/>
             <TextBox x:Name="initialBalanceTextBox" Margin="0,0,0,10"/>
 
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <Button Content="Create" Click="Create_Click" />
-                <Button Content="Cancel" Click="Cancel_Click"/>
-            </StackPanel>
+            <Button Content="Create" Click="Create_Click" />
+            
+            <Button Content="Cancel" Click="Cancel_Click"/>
         </StackPanel>
     </Grid>
 </Window>

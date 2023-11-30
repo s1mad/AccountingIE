@@ -5,24 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:AccountingIE"
       mc:Ignorable="d"
-      Title="TransactionPage" Height="Auto" Width="Auto">
+      Title="TransactionPage" 
+      Height="Auto" Width="Auto">
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
-            <Button Content="Filter" Click="FilterButton_Click"/>
-            <Button Content="Add Transaction" Click="AddTransactionButton_Click" Margin="10,0,0,0"/>
-            <Button Content="All accounts" Click="AllAccounts_Click" Margin="10,0,0,0"/>
+        <StackPanel Margin="15">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300">
+                <ListBox x:Name="transactionsListBox" Margin="10">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Category}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Amount, StringFormat='{}{0:N2} &#8381;'}"/>
+                                <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Edit" Click="EditMenuItem_Click"/>
+                            <MenuItem Header="Delete" Click="DeleteMenuItem_Click"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+            </ScrollViewer>
+            
+            <Button Content="Add Transaction" Click="AddTransactionButton_Click" Margin="10"/>
+            
+            <Button Content="All accounts" Click="AllAccounts_Click" Margin="10"/>
         </StackPanel>
-
-        <ListBox Name="transactionsListBox" Margin="10,50,10,10">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Date}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Category}"/>
-                        <TextBlock Text="{Binding Amount, StringFormat='₽{0:N2}'}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
     </Grid>
 </Page>

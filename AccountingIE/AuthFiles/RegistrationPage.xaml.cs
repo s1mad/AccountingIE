@@ -36,7 +36,7 @@ public partial class RegistrationPage : Page
                 NavigationService.RemoveBackEntry();
             }
         }
-    } // Регистрация пользователя
+    }
 
     private void HaveAccountButton_Click(object sender, RoutedEventArgs e)
     {

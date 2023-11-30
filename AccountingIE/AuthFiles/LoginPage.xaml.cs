@@ -22,7 +22,7 @@ public partial class LoginPage : Page
         {
             MessageBox.Show("Invalid login or password. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-    } // Вход в аккаунт
+    }
 
     private void NoAccountButton_Click(object sender, RoutedEventArgs e)
     {

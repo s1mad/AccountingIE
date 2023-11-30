@@ -48,3 +48,6 @@ D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\Transaction
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\TransactionPage.g.cs
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\CreateTransactionWindow.baml
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\TransactionPage.baml
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\FilterWindow.g.cs
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\App.baml
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\FilterWindow.baml

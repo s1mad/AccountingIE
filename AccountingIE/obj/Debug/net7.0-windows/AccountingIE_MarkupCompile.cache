@@ -16,5 +16,5 @@ D:\Files\Projects\AccountingIE\AccountingIE\App.xaml
 203-1581499147
 AccountsFiles\AccountsPage.xaml;AccountsFiles\CreateAccountWindow.xaml;AccountsFiles\DeleteAccountWindow.xaml;AuthFiles\LoginPage.xaml;AuthFiles\RegistrationPage.xaml;MainWindow.xaml;TransactionFiles\CreateTransactionWindow.xaml;TransactionFiles\FilterWindow.xaml;TransactionFiles\TransactionPage.xaml;
 
-True
+False
 

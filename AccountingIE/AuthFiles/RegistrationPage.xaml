@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AccountingIE"
       mc:Ignorable="d"
       Title="Registration">
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="330">
         <Grid>
             <StackPanel Margin="15">
                 <Label>Login:</Label>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AccountingIE"
       mc:Ignorable="d"
       Title="Login" >
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="330">
         <StackPanel Margin="15">
             <Label>Login:</Label>
             <TextBox x:Name="LoginBox" Text="admin"/>

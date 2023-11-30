@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -7,7 +8,7 @@ namespace AccountingIE;
 
 public partial class AccountsPage : Page
 {
-    public ObservableCollection<Account> accounts;
+    public List<Account> accounts;
     public AccountsPage()
     {
         InitializeComponent();
@@ -32,7 +33,7 @@ public partial class AccountsPage : Page
     }
     private void LoadAccounts()
     {
-        accounts = new ObservableCollection<Account>(DataBase.Accounts.GetUserAccounts(Session.CurrentUser));
+        accounts = new List<Account>(DataBase.Accounts.GetUserAccounts(Session.CurrentUser));
 
         accountsListBox.ItemsSource = accounts;
     }
@@ -42,5 +43,15 @@ public partial class AccountsPage : Page
         decimal totalBalance = accounts.Sum(account => account.Balance);
         
         totalBalanceText.Text = $"Total Balance: {totalBalance:C}";
+    }
+
+    private void AllTransaction_Click(object sender, RoutedEventArgs e)
+    {
+        NavigationService.Navigate(new TransactionPage());
+        
+        if (NavigationService.CanGoBack)
+        {
+            NavigationService.RemoveBackEntry();
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace AccountingIE;
 
 public partial class DeleteAccountWindow : Window
 {
-    public DeleteAccountWindow(ObservableCollection<Account> accounts)
+    public DeleteAccountWindow(List<Account> accounts)
     {
         InitializeComponent();
         

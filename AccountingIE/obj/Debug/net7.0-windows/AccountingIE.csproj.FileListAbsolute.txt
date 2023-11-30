@@ -44,3 +44,7 @@ D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\AccountsFil
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\AccountsFiles\CreateAccountWindow.baml
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\AccountsFiles\DeleteAccountWindow.g.cs
 D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\AccountsFiles\DeleteAccountWindow.baml
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\CreateTransactionWindow.g.cs
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\TransactionPage.g.cs
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\CreateTransactionWindow.baml
+D:\Files\Projects\AccountingIE\AccountingIE\obj\Debug\net7.0-windows\TransactionFiles\TransactionPage.baml

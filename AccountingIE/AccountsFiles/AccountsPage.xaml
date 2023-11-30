@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:AccountingIE"
       mc:Ignorable="d"
-      Title="AccountsPage" Height="450" Width="600"
+      Title="AccountsPage" Height="Auto" Width="Auto"
       MinHeight="300" MinWidth="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
         </StackPanel>
 
         <!-- Средняя часть, содержащая прокручиваемый ListBox -->
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <ListBox x:Name="accountsListBox" SelectionMode="Single" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -32,11 +32,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </ScrollViewer>
-
-        <!-- Нижняя часть, содержащая кнопки -->
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Добавить новый счёт" Click="CreateAccount_Click" Margin="10"/>
-            <Button Content="Удалить счёт" Click="DeleteAccount_Click" Margin="10"/>
+            <Button Content="Add account" Click="CreateAccount_Click" Margin="10"/>
+            <Button Content="Delete account" Click="DeleteAccount_Click" Margin="10"/>
+            <Button Content="All transactions" Click="AllTransaction_Click" Margin="10"/>
         </StackPanel>
     </Grid>
 
